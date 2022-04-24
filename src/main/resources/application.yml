@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    username: bdnhxynz
+    url: jdbc:postgresql://isilo.db.elephantsql.com:5432/bdnhxynz
+    password: XuOKTo5PKCEOXuHlR7uuq8J2T631osMK
+  jpa:
+    database: POSTGRESQL
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: 'true '
+    show-sql: 'false'
+    hibernate:
+      ddl-auto: none
+  database:
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      platform: postgresql
+  kafka:
+    producer:
+      bootstrap-servers: 127.0.0.1:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: com.letscode.transacaobanco811.jms.serializer.TransferenciaSerializer
+      group-id: group_id
+
+auto:
+  create:
+    topics:
+      enable: true
+
+kafka:
+  topic:
+    name: banco811.example.topic
+
+
+
+server:
+  port: '8090'
